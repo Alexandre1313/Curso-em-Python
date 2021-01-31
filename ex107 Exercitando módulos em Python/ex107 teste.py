@@ -1,0 +1,12 @@
+import moedas
+valor = float(input('Informe um valor:  '))
+perc = float(input('Informe o percentual à ser aplicado: '))
+mais = moedas.porcentomais(valor, perc)
+menos = moedas.porcentomenos(valor, perc)
+dobro = moedas.dobro(valor)
+metade = moedas.metade(valor)
+print(f'O valor informado foi :R$ {valor:.2f}')
+print(f'O valor com {perc:.2f} % de acréssimo foi elevado para :{mais}')
+print(f'O valor com {perc:.2f} % de decréssimo foi reduzido para:{menos}')
+print(f'O dobro do valor informado é :{dobro}')
+print(f'A metade do valor informado é :{metade}')

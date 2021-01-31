@@ -1,0 +1,15 @@
+from time import sleep
+frase = str(input('''Digite uma frase:  ''')).strip().upper()
+print(f'''A frase que você digitou foi:
+\033[33m{frase}\033[m''')
+sleep(1)
+letra = str(input('Digite a letra que gostaria de analizar:  ')).strip().upper()
+print('=-'*30)
+sleep(2)
+print(f'Sua frase possui ao todo {len(frase)} posições contando com espaços entre palavras, pontos, vírgulas, etc.')
+sleep(2)
+print(f"A letra {letra} aparece {frase.count(letra)} vezes na frase ")
+sleep(2)
+print(f'A letra {letra} aparece pela primeira vez na {frase.find(letra) + 1}ª posição da frase')
+sleep(2)
+print(f'A letra {letra} aparece pela última vez na {frase.rfind(letra) + 1}ª posição da frase')
