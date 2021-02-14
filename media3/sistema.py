@@ -1,4 +1,3 @@
-import media3.interface
+from media3.interface import janela_opcao
 
-
-media3.interface.janela_opcao()
+janela_opcao()

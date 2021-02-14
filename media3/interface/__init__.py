@@ -622,7 +622,7 @@ def janela_opcao():
         [Sg.Text('', size=(31, 0), justification='center',
                  background_color='#2E2E2E',
                  relief='raised', border_width=3)],
-        [Sg.InputOptionMenu(temas, size=(31, 0), default_value='DarkGreen6', key='-color-')]
+        [Sg.InputOptionMenu(temas, size=(31, 0), default_value='DarkBlack1', key='-color-')]
     ]
     opcao4 = Sg.FlexForm('CÁLCULO MÉDIAS v 3.0', element_justification='center').layout(layout4)
     while True:
