@@ -1699,7 +1699,10 @@ class Banco:
         from time import sleep
         todos = [s1, s2, s3, s4, s5, s6]
         todos1 = []
-        ct = 0
+        ind = 0
+        mater = 1
+        ind1 = 0
+        mater1 = 1
         cont = 1
         cm = 91
         mb = 91
@@ -1729,21 +1732,21 @@ class Banco:
             mda = 0.0
             lis1 = []
             lis2 = []
-            lis3 = []
+            # lis3 = []
             Banco.linhas(f'Informações referente ao semestre 0{todos1[0]}:', cm, mb, 'ne')
             sleep(temp)
-            for t in records:
+            for i, t in enumerate(records):
                 if cont1 == 0:
                     Banco.linhas(f'Matérias que o compõem:', 0, 0, 'mb')
+                    cont1 += 1
                     sleep(temp)
-                cont1 += 1
-                Banco.linhas(f'{cont1}ª - {t[0]}', 0, 0, 'nm')
+                Banco.linhas(f'{i + 1}ª - {t[0]}', 0, 0, 'nm')
                 if t[3] == 'À cursar':
-                    lis1.append(t)
-                    lis3.append(cont1)
+                    lis1.append(i + 1)
+                    lis1.append(t[0])
                 if t[3] == 'Em curso':
-                    lis2.append(t)
-                    lis3.append(cont1)
+                    lis2.append(i + 1)
+                    lis2.append(t[0])
                 if t[1] >= 0:
                     mdn += t[1]
                     mda += t[2]
@@ -1763,18 +1766,22 @@ class Banco:
                 Banco.linhas(f'Com um percentual de aproveitamento de : {mda1:.1f}%', 0, mb, 'mb')
             else:
                 if len(lis2) > 0:
+                    fh = int(len(lis2) / 2)
                     Banco.linhas(f'SENDO QUE PERMANECE (EM CURSO):', cm, 0, 'mc')
                     sleep(temp)
-                    for u in lis2:
-                        Banco.linhas(f'{lis3[ct]}ª - {u[0]}', 0, 0, 'nm')
-                        ct += 1
+                    for c in range(0, fh):
+                        Banco.linhas(f'{lis2[ind]}ª - {lis2[mater]}', 0, 0, 'nm')
+                        ind += 2
+                        mater += 2
                         sleep(temp)
                 if len(lis1) > 0:
+                    fi = int(len(lis1) / 2)
                     Banco.linhas(f'SENDO QUE PERMANECE AINDA (À CURSAR):', cm, 0, 'mc')
                     sleep(temp)
-                    for x in lis1:
-                        Banco.linhas(f'{lis3[ct]}ª - {x[0]}', 0, 0, 'nm')
-                        ct += 1
+                    for c in range(0, fi):
+                        Banco.linhas(f'{lis1[ind1]}ª - {lis1[mater1]}', 0, 0, 'nm')
+                        ind1 += 2
+                        mater1 += 2
                         sleep(temp)
                 Banco.linhas(f'Gerando uma média temporária de : {mdn1:.2f}', cm, 0, 'mc')
                 sleep(temp)
