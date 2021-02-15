@@ -284,12 +284,10 @@ def janela_update(color):
 
 def janela_visualizar(color):
     c = color
-    mat2 = None
     cim = 91
     bi = 91
     e = None
     cnf = False
-    pes = False
     Sg.theme(c)
     c = media3.funtions.Banco()
     mat = c.carr_materias()
@@ -475,10 +473,9 @@ def janela_visualizar(color):
             break
         if event2 == 'ok':
             if value2['-comb-'] != '':
-                mat2 = value2['-comb-']
-                if mat2 in mat:
+                if value2['-comb-'] in mat:
                     try:
-                        e = c.carr_linha0(mat2)
+                        e = c.carr_linha0(value2['-comb-'])
                         x = c.retiracasas(e[0], e[1], e[2], e[3],
                                           e[4], e[5], e[6], e[7],
                                           e[8], e[9], e[10], e[11],
@@ -500,7 +497,6 @@ def janela_visualizar(color):
                        '-pda-', '-tp-', '-sim-', '-out7-', '-jk3-', '-jk4-')
                     c.linhas('ERRO-Matéria inexistente no banco de dados!', cim, bi, 'ne')
             else:
-                mat2 = ''
                 e = None
                 up(visual, '-comb-', '-mat1-', '-sm1-', '-av1-', '-av2-',
                    '-av3-', '-av4-', '-md1-', '-md2-', '-md3-', '-md4-', '-mdfm-',
@@ -529,9 +525,7 @@ def janela_visualizar(color):
             if e is not None:
                 if e[0] in mat:
                     up(visual, '-out7-')
-                    pes = True
-                    c.informations(e[2], e[4], e[6], e[8], e[10], e[0], cnf, pes)
-                    pes = False
+                    c.informations(e[2], e[4], e[6], e[8], e[10], e[0], cnf, True)
                 else:
                     c.linhas('ERRO-Matéria inexistente no banco de dados!', cim, bi, 'ne')
             else:
