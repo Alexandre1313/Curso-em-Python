@@ -1797,4 +1797,4 @@ class Banco:
                 sleep(temp)
                 Banco.linhas(f'Com um percentual de aproveitamento temporário de : {mda1:.1f}%', 0, mb, 'mb')
         else:
-            Banco.linhas(f'ERRO-Selecione apenas um semestre para ver o resultado !', cm, mb, 'ne')
+            Banco.linhas(f'ERRO-Selecione apenas um "semestre" para ver o resultado !', cm, mb, 'ne')
