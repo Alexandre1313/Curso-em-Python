@@ -1699,10 +1699,8 @@ class Banco:
         from time import sleep
         todos = [s1, s2, s3, s4, s5, s6]
         todos1 = []
-        ind = 0
-        mater = 1
-        ind1 = 0
-        mater1 = 1
+        ind = ind1 = ind2 = 0
+        mater = mater1 = mater2 = 1
         cont = 1
         cm = 91
         mb = 91
@@ -1732,7 +1730,7 @@ class Banco:
             mda = 0.0
             lis1 = []
             lis2 = []
-            # lis3 = []
+            lis3 = []
             Banco.linhas(f'Informações referente ao semestre 0{todos1[0]}:', cm, mb, 'ne')
             sleep(temp)
             for i, t in enumerate(records):
@@ -1741,6 +1739,9 @@ class Banco:
                     cont1 += 1
                     sleep(temp)
                 Banco.linhas(f'{i + 1}ª - {t[0]}', 0, 0, 'nm')
+                if t[3] == 'Concluída':
+                    lis3.append(i + 1)
+                    lis3.append(t[0])
                 if t[3] == 'À cursar':
                     lis1.append(i + 1)
                     lis1.append(t[0])
@@ -1765,6 +1766,15 @@ class Banco:
                 sleep(temp)
                 Banco.linhas(f'Com um percentual de aproveitamento de : {mda1:.1f}%', 0, mb, 'mb')
             else:
+                if len(lis3) > 0:
+                    fy = int(len(lis3) / 2)
+                    Banco.linhas(f'MATÉRIAS JÁ CONCLUÍDAS:', cm, 0, 'mc')
+                    sleep(temp)
+                    for c in range(0, fy):
+                        Banco.linhas(f'{lis3[ind2]}ª - {lis3[mater2]}', 0, 0, 'nm')
+                        ind2 += 2
+                        mater2 += 2
+                        sleep(temp)
                 if len(lis2) > 0:
                     fh = int(len(lis2) / 2)
                     Banco.linhas(f'SENDO QUE PERMANECE (EM CURSO):', cm, 0, 'mc')
