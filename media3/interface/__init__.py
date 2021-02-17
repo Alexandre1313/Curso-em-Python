@@ -508,6 +508,7 @@ def janela_visualizar(color):
                 if e[0] in mat:
                     up(visual, '-out7-')
                     cnf = True
+                    c.anime(visual, '-out7-', '=>', 3, 10, 'Calculando a(s) nota(s) necessária(s)')
                     c.informations(e[2], e[4], e[6], e[8], e[10], e[0], cnf)
                     cnf = False
                 else:
@@ -525,6 +526,7 @@ def janela_visualizar(color):
             if e is not None:
                 if e[0] in mat:
                     up(visual, '-out7-')
+                    c.anime(visual, '-out7-', '=>', 3, 10, 'Calculando o peso de cada nota na média final')
                     c.informations(e[2], e[4], e[6], e[8], e[10], e[0], cnf, True)
                 else:
                     c.linhas('ERRO-Matéria inexistente no banco de dados!', cim, bi, 'ne')
@@ -563,7 +565,7 @@ def janela_visualizar(color):
             k4 = value2['-comb3-']
             k5 = value2['-comb4-']
             k6 = value2['-comb5-']
-            c.anime(visual, '-out7-', '=>', 3, 10, 'Reunindo as informações solicitadas')
+            c.anime(visual, '-out7-', '=>', 3, 10, 'Reunindo as informações do semestre solicitado')
             c.medsem(k1, k2, k3, k4, k5, k6)
     visual.close()
 
