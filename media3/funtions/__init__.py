@@ -1724,10 +1724,8 @@ class Banco:
             finally:
                 c.close()
                 data.close()
-            cont1 = 0
-            cont2 = 0
-            mdn = 0.0
-            mda = 0.0
+            cont1 = cont2 = 0
+            mdn = mda = 0.0
             lis1 = []
             lis2 = []
             lis3 = []
