@@ -1677,8 +1677,14 @@ class Banco:
             for v in i:
                 mdf += v
                 cont += 1
-        mdc = mdf / cont
-        pdc = mdc * 100 / 10
+        if mdf > 0:
+            mdc = mdf / cont
+        else:
+            mdc = 0.0
+        if mdc > 0:
+            pdc = mdc * 100 / 10
+        else:
+            mdc = pdc = 0.0
         jll = [mdc, pdc]
         return jll
 
