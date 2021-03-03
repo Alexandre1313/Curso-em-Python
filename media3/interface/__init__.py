@@ -72,6 +72,7 @@ def janela_inserir(color):
     c = color
     Sg.theme(c)
     layout0 = [
+        [Sg.Text('')],
         [Sg.Text('Matéria >>', size=(12, 0), background_color='#2E2E2E'),
          Sg.InputText('', size=(51, 0), key='-disc-',
                       focus=True, border_width=4, background_color='#424242', text_color='#81F79F')],
@@ -95,13 +96,14 @@ def janela_inserir(color):
         [Sg.Text('Prova 04 >>', size=(12, 0), background_color='#2E2E2E'),
          Sg.InputText('', size=(5, 0), key='-nota4-',
                       border_width=4, background_color='#424242', text_color='#58ACFA')],
-        [Sg.Output(size=(84, 18), key='-out-', text_color='#00F5FF', background_color='#363636', visible=True)],
+        [Sg.Output(size=(84, 18), key='-out-', text_color='#F4A460', background_color='#363636', visible=True)],
         [Sg.Button('Salvar', size=(10, 0), border_width=4,
                    tooltip='  Salvar  '),
          Sg.Button('Menu(<)', size=(10, 0), border_width=4,
                    tooltip='  Retornar ao menu de opções  ')]
     ]
-    inserir = Sg.FlexForm('INSERIR').layout(layout0)
+    inserir = Sg.FlexForm('INSERIR', use_default_focus=False, no_titlebar=True,
+                          use_custom_titlebar=True, titlebar_background_color='#000000').layout(layout0)
     zerar = 0
     while True:
         event0, value0 = inserir.read()
@@ -137,6 +139,7 @@ def janela_update(color):
     c = media3.funtions.Banco()
     mat = c.carr_materias()
     layout1 = [
+        [Sg.Text('')],
         [Sg.Text('Selecione a matéria >>', size=(24, 0), background_color='#2E2E2E',
                  relief='flat', border_width=2), Sg.InputCombo(mat,
                                                                background_color='#2E2E2E', text_color='#81F79F',
@@ -173,7 +176,7 @@ def janela_update(color):
                  relief='flat', border_width=2), Sg.Text('',
                                                          size=(5, 0), background_color='#424242', text_color='#58ACFA',
                                                          relief='sunken', border_width=2, key='-sim-')],
-        [Sg.Output(size=(84, 16), key='-out-', text_color='#00F5FF',
+        [Sg.Output(size=(84, 16), key='-out-', text_color='#F4A460',
                    background_color='#363636', visible=True)],
         [Sg.Text('Simulado >>', size=(10, 0), background_color='#2E2E2E',
                  relief='flat', border_width=2), Sg.InputText('',
@@ -211,7 +214,8 @@ def janela_update(color):
          Sg.Button('Menu(<)', size=(10, 0), border_width=4,
                    tooltip='  Retornar ao menu de opções  ')]
     ]
-    update = Sg.FlexForm('ALTERAR').layout(layout1)
+    update = Sg.FlexForm('ALTERAR', use_default_focus=False, no_titlebar=True,
+                         use_custom_titlebar=True, titlebar_background_color='#000000').layout(layout1)
     cm = bx = 83
     mat2 = None
     e = None
@@ -292,6 +296,7 @@ def janela_visualizar(color):
     c = media3.funtions.Banco()
     mat = c.carr_materias()
     layout2 = [
+        [Sg.Text('')],
         [Sg.Text('Média geral >>', size=(24, 0), background_color='#2E2E2E',
                  relief='flat', border_width=2), Sg.Text('',
                                                          size=(9, 0), background_color='#424242',
@@ -375,7 +380,7 @@ def janela_visualizar(color):
                    tooltip=' Mostra o peso de cada nota na média final da metéria '),
          Sg.Button('Menu(<)', size=(10, 0), border_width=4,
                    tooltip='  Retornar ao menu de opções  ')],
-        [Sg.Output(size=(92, 17), key='-out7-', text_color='#00F5FF',
+        [Sg.Output(size=(92, 17), key='-out7-', text_color='#F4A460',
                    background_color='#363636', visible=True)],
         [Sg.Text('Matéria >>', size=(15, 0), background_color='#2E2E2E',
                  relief='flat', border_width=2),
@@ -463,7 +468,8 @@ def janela_visualizar(color):
                                                          text_color='#81F79F',
                                                          relief='sunken', border_width=2, key='-jk4-')]
     ]
-    visual = Sg.FlexForm('CÁLCULO MÉDIAS v 3.0').layout(layout2)
+    visual = Sg.FlexForm('CÁLCULO MÉDIAS v 3.0', use_default_focus=False, no_titlebar=True,
+                         use_custom_titlebar=True, titlebar_background_color='#000000').layout(layout2)
     while True:
         event2, value2 = visual.read()
         ag = c.x()
@@ -555,6 +561,7 @@ def janela_visualizar(color):
             c.anime(visual, '-out7-', '=>', 3, 10, 'Reunindo as informações solicitadas')
             c.estat(estatist)
         if event2 == 'Ranking':
+            up(visual, '-out7-')
             c.anime(visual, '-out7-', '=>', 3, 10, 'Gerando placar')
             c.mostrar()
         if event2 == 'Sem. inf.':
@@ -571,7 +578,7 @@ def janela_visualizar(color):
 
 
 def janela_opcao():
-    Sg.theme('DarkGreen6')
+    Sg.theme(new_theme='DarkGrey6')
     temas = ['Black', 'BlueMono', 'BluePurple', 'BrightColors', 'BrownBlue', 'Dark', 'Dark2', 'DarkAmber',
              'DarkBlack', 'DarkBlack1', 'DarkBlue', 'DarkBlue1', 'DarkBlue10', 'DarkBlue11', 'DarkBlue12',
              'DarkBlue13', 'DarkBlue14', 'DarkBlue15', 'DarkBlue16', 'DarkBlue17', 'DarkBlue2', 'DarkBlue3',
@@ -597,6 +604,7 @@ def janela_opcao():
              'Tan', 'TanBlue', 'TealMono', 'Topanga']
     n = media3.funtions.Banco
     layout4 = [
+        [Sg.Text('')],
         [Sg.Text(' Bem vindo! ',
                  size=(28, 1), justification='center', font=('arial', 13),
                  background_color='#2E2E2E',
@@ -618,9 +626,11 @@ def janela_opcao():
         [Sg.Text('', size=(31, 0), justification='center',
                  background_color='#2E2E2E',
                  relief='raised', border_width=3)],
-        [Sg.InputOptionMenu(temas, size=(31, 0), default_value='DarkBlack1', key='-color-')]
+        [Sg.OptionMenu(temas, default_value='DarkGrey6', size=(31, 0), key='-color-')]
     ]
-    opcao4 = Sg.FlexForm('CÁLCULO MÉDIAS v 3.0', element_justification='center').layout(layout4)
+    opcao4 = Sg.FlexForm('CÁLCULO MÉDIAS v 3.0', element_justification='center',
+                         use_default_focus=False, use_custom_titlebar=True, no_titlebar=True,
+                         titlebar_background_color='#000000').layout(layout4)
     while True:
         event4, value4 = opcao4.read()
         c = value4['-color-']

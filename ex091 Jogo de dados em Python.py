@@ -38,6 +38,6 @@ for i, v in ranking:
 efeito1 = 'PROGRAMA FINALIZADO'
 print('\033[31m*\033[m' * 40)
 for c in efeito1:
-    print(f'\033[33;1m{f"{c}":^1}\033[m', end=''), sleep(0.3)
+    print(f'\033[33;1m{f"{c}":^1}\033[m', end=''), sleep(0.03)
 print()
 print('\033[31m*\033[m' * 40)

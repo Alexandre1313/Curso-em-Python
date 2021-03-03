@@ -38,15 +38,15 @@ class Reprod:
         return ram
 
     def colours_01(self, arg, arg0):
-        nan = randint(0, 19)
+        nan = randint(0, 21)
         tupla = ('#FFFF00', '#00FF00', '#FF7256', '#00BFFF', '#E0FFFF',
                  '#98FB98', '#8470FF', '#FF69B4', '#9AFF9A', '#FF83FA',
-                 '#698B69', '#68228B', '#FF0000', '#00FFFF', '#BCEE68',
-                 '#8B7B8B', '#CDB5CD', '#4F4F4F', '#FFFACD', '#CD7054')
+                 '#698B69', '#68228B', '#FF0000', '#00FFFF', '#BCEE68', '#FFFFFF',
+                 '#8B7B8B', '#CDB5CD', '#4F4F4F', '#FFFACD', '#CD7054', '#000000')
         arg.find_element(arg0).Update(background_color=tupla[nan])
-        nan = randint(0, 19)
+        nan = randint(0, 21)
         Reprod.set_buton(self, tupla[nan])
-        nan = randint(0, 19)
+        nan = randint(0, 21)
         Reprod.set_buton1(self, tupla[nan])
 
     def contin(self, arg0, arg1):

@@ -69,7 +69,8 @@ def reprodutor():
                  relief='sunken', justification='center'),
          Sg.Button('Clear', size=(7, 0))]
     ]
-    reprod = Sg.FlexForm('MUSIC PLAYER').Layout(layout)
+    reprod = Sg.FlexForm('MUSIC PLAYER', use_default_focus=False, no_titlebar=False,
+                         titlebar_background_color='#000000').Layout(layout)
     volum = 0.2
     volumam = 20
     while True:
